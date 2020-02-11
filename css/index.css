@@ -1,0 +1,10 @@
+.bg-img{
+    position: absolute;
+    z-index: -10;
+}
+.w3-container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:100px;
+}
