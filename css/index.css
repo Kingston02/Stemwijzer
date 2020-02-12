@@ -38,3 +38,19 @@
 .w3-row{
     margin-top: 50px;
 }
+
+.start-btn{
+    background-color: black;
+    color:white;
+    width: 190px;
+    height: 70px;
+    border-radius: 10px;
+    float: right;
+}
+
+hr {
+    border: 1px dotted #ff0000;
+    border-style: none none dotted; 
+    color: #fff; 
+    background-color: #fff;
+}
