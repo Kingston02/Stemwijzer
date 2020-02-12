@@ -6,5 +6,21 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom:100px;
+    top: 90px;
+    -ms-transform: translateY(90px);
+    transform: translateY(90px);
+    height: 700px;
+}
+
+.logo{
+    width: 350px;
+}
+
+.test-txt{
+    color: #01b4dc;
+}
+
+.all-in{
+    margin-left: 90px;
+    margin-top: 80px;
 }
