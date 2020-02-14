@@ -9,7 +9,7 @@
     top: 90px;
     -ms-transform: translateY(90px);
     transform: translateY(90px);
-    height: 700px;
+    height: 470px;
 }
 
 .logo{
@@ -53,4 +53,12 @@ hr {
     border-style: none none dotted; 
     color: #fff; 
     background-color: #fff;
+}
+
+.second-container{
+    background-color: #f7f7f7 !important;
+}
+
+.blik{
+    
 }
