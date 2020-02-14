@@ -3,10 +3,11 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
+        <script type="text/javascript" src="js/start.js"></script>
     </head>
     <body>
         <img class='bg-img' src='img/tweedeKamer.jpeg'>
-        <div class='w3-container w3-white'>
+        <div id='first-container' class='w3-container w3-white'>
             <div class="all-in">
                 <img class="logo" src="img/logo.jpeg">
                 <h4 class="quot"><strong>StemWijzer Tweede Kamer 2017</strong></h4>
@@ -21,20 +22,23 @@
                         <p>De StemWijzer maakt geen gebruik <br>van cookies. Klik hier voor de <br>volledige privacy statement</p>
                     </div>
                     <div class='w3-col m4 l5'>
-                        <button class='start-btn'><h3>Start</h3></button>
+                        <button class='start-btn' onclick="start()"><h3>Start</h3></button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id='second-container' class='w3-container w3-grey'>
+        <div id='second-container' class='w3-container'>
             <div class="all-in">
-                <h4 class="blik">Of blik terug met de StemmenTracker</h4>
-                <div class="w3-row">
-                    <div class='w3-col m4 l1'>
+                <h4 class="blik">Of blik terug met de <span class='stem-txt-color'>Stemmen</span>Tracker</h4>
+                <div class='par-txt'>Wat hebben de partijen in het verleden waargemaakt van hun verkiezingsbeloften? 'Track' uw stem met de Stemmentracker, een website die terugblikt op 30 Tweede Kamerstemmingen van de afgelopen regeerperiode. Met welke partij stemde u mee?</div>
+            </div>
+        </div>
 
-                    </div>
-                </div>
+        <div id='third-container' class='w3-container'>
+            <div class="all-in">
+                <img class='vandaag-logo' src="img/vandaag.jpeg">
+                <p class='partij-exist-txt'>Deze partijen doen mee</p>
             </div>
         </div>
     </body>

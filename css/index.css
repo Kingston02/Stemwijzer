@@ -56,11 +56,35 @@ hr {
 }
 
 #second-container{
-    background-color: #ff0000;
-    height: 140px;
+    background-color: #F9F9F9;
+    height: 150px;
 }
 
 .blik{
+    position: absolute;
+    top: 10px;
+    color: #4B4B4B;
+}
+
+.stem-txt-color{
+    color: #ACACAC;
+}
+
+.par-txt{
+    color:#4f4d4d;
+    margin-top: -10px;
+}
+
+#third-container{
+    background-color: #05B4DC;
+}
+
+.vandaag-logo{
+    width: 200px;
     position: relative;
-    top: 0px;
+    top: -50px;
+}
+
+.partij-exist-txt{
+
 }
