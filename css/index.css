@@ -55,10 +55,12 @@ hr {
     background-color: #fff;
 }
 
-.second-container{
-    background-color: #f7f7f7 !important;
+#second-container{
+    background-color: #ff0000;
+    height: 140px;
 }
 
 .blik{
-    
+    position: relative;
+    top: 0px;
 }
