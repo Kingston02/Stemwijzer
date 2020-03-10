@@ -10,18 +10,18 @@
             <div class="all-in">
                 <img id="logo" src="img/logo.jpeg">
                 <h4 id="quot"><strong>StemWijzer Tweede Kamer 2017</strong></h4>
-                <h4 class="test-txt"><strong>Test uw politieke voorkeur aan de hand van 30 stellingen</strong></h4>
+                <h4 class="test-txt" id="statement"><strong>Test uw politieke voorkeur aan de hand van 30 stellingen</strong></h4>
                 <div class="w3-row">
-                    <div class='w3-col m4 l1'>
+                    <div class='w3-col m4 l1' class='info-place'>
                         <img class='pop' src="img/pop.jpeg">
                         <img class='slot' src="img/slot.jpeg">
                     </div>
-                    <div class='w3-col m4 l5'>
+                    <div class='w3-col m4 l5' class='info-place'>
                         <p>Bekijk de toegankelijke versie voor <br>mensen met een visuele beperking</p>
                         <p>De StemWijzer maakt geen gebruik <br>van cookies. Klik hier voor de <br>volledige privacy statement</p>
                     </div>
                     <div class='w3-col m4 l5'>
-                        <button class='start-btn' onclick="start()"><h3>Start</h3></button>
+                        <button class='start-btn' id='btn-next' onclick="start()"><h3>Start</h3></button>
                     </div>
                 </div>
             </div>
@@ -40,6 +40,7 @@
                 <p class='partij-exist-txt'>Deze partijen doen mee</p>
             </div>
         </div>
+        <script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
         <script src="js/start.js"></script>
     </body>
 </html>
