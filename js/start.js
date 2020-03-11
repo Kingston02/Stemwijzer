@@ -12,6 +12,7 @@ var btnNext3 = document.getElementById("btn-next3");
 var infoPlace = document.getElementById("info-place");
 var infoPlace2 = document.getElementById("info-place2");
 var partij_aantal = parties.length;
+var loopCount = partij_aantal - 1;
 var eens_score = 0;
 var vraag = 1;
 
@@ -50,7 +51,7 @@ function next(){
 }
 
 function eens(){
-    for (var k = 0; k < partij_aantal; k++) {
+    for (var k = 0; k < loopCount; k++) {
         var positie = subjects[vraag].parties[k].position;
         if(positie == 'pro'){
             var naam = subjects[vraag].parties[k].name;
@@ -68,7 +69,7 @@ function eens(){
 }
 
 function geen(){
-    for (var k = 0; k < partij_aantal; k++) {
+    for (var k = 0; k < loopCount; k++) {
         var positie = subjects[vraag].parties[k].position;
         if(positie == 'none'){
             var naam = subjects[vraag].parties[k].name;
@@ -86,7 +87,7 @@ function geen(){
 }
 
 function oneens(){
-    for (var k = 0; k < partij_aantal; k++) {
+    for (var k = 0; k < loopCount; k++) {
         var positie = subjects[vraag].parties[k].position;
         if(positie == 'contra'){
             var naam = subjects[vraag].parties[k].name;
