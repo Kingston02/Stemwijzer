@@ -3,6 +3,8 @@ var secondContainer = document.getElementById("second-container");
 var thirdContainer = document.getElementById("third-container");
 var logo = document.getElementById("logo");
 var quot = document.getElementById("quot");
+var statements = document.getElementById("blik");
+var overslaan = document.getElementById("overslaan");
 var uitleg = document.getElementById("statement");
 var btnNext = document.getElementById("btn-next");
 var btnNext2 = document.getElementById("btn-next2");
@@ -19,7 +21,7 @@ for (var i = 0; i < partij_aantal; i++) {
 }
 
 function start(){
-    secondContainer.style.display = "none";
+    //secondContainer.style.display = "none";
     thirdContainer.style.display = "none";
     logo.src = "img/arrow.png";
     logo.style.width = "20px";
@@ -31,7 +33,9 @@ function start(){
     uitleg.style.color = 'black';
     quot.innerHTML = vraag+'. '+subjects[0].title;
     uitleg.innerHTML = subjects[0].statement;
+    statements.innerHTML = 'Wat vinden de partijen?';
     btnNext.innerHTML = 'Eens';
+    overslaan.style.display = 'inline';
     infoPlace.style.display = 'none';
     infoPlace2.style.display = 'none';
     btnNext2.style.display = 'inline';
@@ -39,16 +43,40 @@ function start(){
     btnNext.onclick = function() {eens()};
 }
 
+function next(){
+    vraag += 1;
+    quot.innerHTML = vraag+'. '+subjects[vraag].title;
+    uitleg.innerHTML = subjects[vraag].statement;
+}
+
 function eens(){
     for (var k = 0; k < partij_aantal; k++) {
-        var positie = subjects[0].parties[k].position;
+        var positie = subjects[vraag].parties[k].position;
         if(positie == 'pro'){
-            var naam = subjects[0].parties[k].name;
+            var naam = subjects[vraag].parties[k].name;
             var eens_score = sessionStorage.getItem(naam);
             var new_score = eval(eens_score) + 1;
             sessionStorage.setItem(naam, new_score);
         } else {
-            var naam = subjects[0].parties[k].name;
+            var naam = subjects[vraag].parties[k].name;
+            var eens_score = sessionStorage.getItem(naam);
+            var new_score = eval(eens_score) - 1;
+            sessionStorage.setItem(naam, new_score);
+        }
+    }
+    next();
+}
+
+function geen(){
+    for (var k = 0; k < partij_aantal; k++) {
+        var positie = subjects[vraag].parties[k].position;
+        if(positie == 'none'){
+            var naam = subjects[vraag].parties[k].name;
+            var eens_score = sessionStorage.getItem(naam);
+            var new_score = eval(eens_score) + 1;
+            sessionStorage.setItem(naam, new_score);
+        } else {
+            var naam = subjects[vraag].parties[k].name;
             var eens_score = sessionStorage.getItem(naam);
             var new_score = eval(eens_score) - 1;
             sessionStorage.setItem(naam, new_score);
@@ -59,14 +87,14 @@ function eens(){
 
 function oneens(){
     for (var k = 0; k < partij_aantal; k++) {
-        var positie = subjects[0].parties[k].position;
+        var positie = subjects[vraag].parties[k].position;
         if(positie == 'contra'){
-            var naam = subjects[0].parties[k].name;
+            var naam = subjects[vraag].parties[k].name;
             var eens_score = sessionStorage.getItem(naam);
             var new_score = eval(eens_score) + 1;
             sessionStorage.setItem(naam, new_score);
         } else {
-            var naam = subjects[0].parties[k].name;
+            var naam = subjects[vraag].parties[k].name;
             var eens_score = sessionStorage.getItem(naam);
             var new_score = eval(eens_score) - 1;
             sessionStorage.setItem(naam, new_score);
@@ -75,9 +103,13 @@ function oneens(){
     next();
 }
 
-
-function next(){
-    quot.innerHTML = vraag+'. '+subjects[vraag].title;
-    uitleg.innerHTML = subjects[1].statement;
-    vraag += 1;
+function back(){
+    if(vraag == 1){
+        localStorage.clear();
+        location.reload();
+    } else {
+        vraag -= 1;
+        quot.innerHTML = vraag+'. '+subjects[vraag].title;
+        uitleg.innerHTML = subjects[vraag].statement;
+    }
 }

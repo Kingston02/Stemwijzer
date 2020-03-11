@@ -60,7 +60,7 @@ hr {
     height: 150px;
 }
 
-.blik{
+#blik{
     position: absolute;
     top: 10px;
     color: #4B4B4B;
@@ -93,5 +93,9 @@ hr {
     display: none;
 }
 #btn-next3{
+    display: none;
+}
+
+#overslaan{
     display: none;
 }
