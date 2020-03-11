@@ -3,6 +3,7 @@ var secondContainer = document.getElementById("second-container");
 var thirdContainer = document.getElementById("third-container");
 var logo = document.getElementById("logo");
 var quot = document.getElementById("quot");
+var par_txt = document.getElementById("par-txt");
 var statements = document.getElementById("blik");
 var overslaan = document.getElementById("overslaan");
 var uitleg = document.getElementById("statement");
@@ -38,6 +39,7 @@ function start(){
     btnNext.innerHTML = 'Eens';
     overslaan.style.display = 'inline';
     infoPlace.style.display = 'none';
+    par_txt.style.display = 'none';
     infoPlace2.style.display = 'none';
     btnNext2.style.display = 'inline';
     btnNext3.style.display = 'inline';
