@@ -11,6 +11,7 @@ var infoPlace = document.getElementById("info-place");
 var infoPlace2 = document.getElementById("info-place2");
 var partij_aantal = parties.length;
 var eens_score = 0;
+var vraag = 1;
 
 for (var i = 0; i < partij_aantal; i++) {
     var naam = subjects[0].parties[i].name;
@@ -28,7 +29,7 @@ function start(){
     logo.style.marginTop = '-50px';
     quot.style.color = '#01b4dc';
     uitleg.style.color = 'black';
-    quot.innerHTML = subjects[0].title;
+    quot.innerHTML = vraag+'. '+subjects[0].title;
     uitleg.innerHTML = subjects[0].statement;
     btnNext.innerHTML = 'Eens';
     infoPlace.style.display = 'none';
@@ -46,32 +47,37 @@ function eens(){
             var eens_score = sessionStorage.getItem(naam);
             var new_score = eval(eens_score) + 1;
             sessionStorage.setItem(naam, new_score);
-            //alert(sessionStorage.getItem("partij"));
+        } else {
+            var naam = subjects[0].parties[k].name;
+            var eens_score = sessionStorage.getItem(naam);
+            var new_score = eval(eens_score) - 1;
+            sessionStorage.setItem(naam, new_score);
         }
     }
     next();
-    // read sessionStorage.getItem("lastname");
 }
 
-function geen(){
+function oneens(){
     for (var k = 0; k < partij_aantal; k++) {
         var positie = subjects[0].parties[k].position;
-        if(positie == 'pro'){
+        if(positie == 'contra'){
             var naam = subjects[0].parties[k].name;
             var eens_score = sessionStorage.getItem(naam);
             var new_score = eval(eens_score) + 1;
             sessionStorage.setItem(naam, new_score);
-            //alert(sessionStorage.getItem("partij"));
+        } else {
+            var naam = subjects[0].parties[k].name;
+            var eens_score = sessionStorage.getItem(naam);
+            var new_score = eval(eens_score) - 1;
+            sessionStorage.setItem(naam, new_score);
         }
     }
-    // read sessionStorage.getItem("lastname");
+    next();
 }
 
-function oneens(){
-    
-}
 
 function next(){
-    quot.innerHTML = subjects[1].title;
+    quot.innerHTML = vraag+'. '+subjects[vraag].title;
     uitleg.innerHTML = subjects[1].statement;
+    vraag += 1;
 }
