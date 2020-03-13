@@ -1,8 +1,10 @@
 var firstContainer = document.getElementById("first-container");
 var secondContainer = document.getElementById("second-container");
 var thirdContainer = document.getElementById("third-container");
+var imp_container = document.getElementById("imp-container");
 var logo = document.getElementById("logo");
 var quot = document.getElementById("quot");
+var blik = document.getElementById("blik");
 var par_txt = document.getElementById("par-txt");
 var overslaan = document.getElementById("overslaan");
 var uitleg = document.getElementById("statement");
@@ -21,9 +23,10 @@ for (var i = 0; i < partij_aantal; i++) {
     sessionStorage.setItem(naam, eens_score);
 }
 
-// start function 
+// start function
 function start(){
     //secondContainer.style.display = "none";
+    blik.innerHTML = 'Wat vinden de partijen?';
     thirdContainer.style.display = "none";
     logo.src = "img/arrow.png";
     logo.style.width = "20px";
@@ -121,8 +124,27 @@ function eindKeuze(){
     btnNext3.style.display = 'none';
     btnNext.innerHTML = '<h3>Ga verder</h3>';
     btnNext.style.position = 'relative';
+    blik.innerHTML = '<strong>Extra belangrijke onderwerpen</strong>';
+    btnNext.style.right = '0px';
     overslaan.style.display = 'none';
     logo.style.display = 'none';
+    //secondContainer.style.display = "inline";
+
+    for (let i = 1; i < vraag; i++) {
+        
+        var element2 = document.createElement("input");
+        element2.type = "checkbox";
+        secondContainer.appendChild(element2);
+        
+        var x = document.createElement("LABEL");
+        var t = document.createTextNode(subjects[i].title);
+        x.setAttribute("for", "male");
+        x.appendChild(t);
+        secondContainer.appendChild(x);
+
+        var x = document.createElement("BR");
+        secondContainer.appendChild(x);  
+    }
 }
 
 function back(){
