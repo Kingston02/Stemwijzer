@@ -4,7 +4,6 @@ var thirdContainer = document.getElementById("third-container");
 var logo = document.getElementById("logo");
 var quot = document.getElementById("quot");
 var par_txt = document.getElementById("par-txt");
-var statements = document.getElementById("blik");
 var overslaan = document.getElementById("overslaan");
 var uitleg = document.getElementById("statement");
 var btnNext = document.getElementById("btn-next");
@@ -22,6 +21,7 @@ for (var i = 0; i < partij_aantal; i++) {
     sessionStorage.setItem(naam, eens_score);
 }
 
+// start function 
 function start(){
     //secondContainer.style.display = "none";
     thirdContainer.style.display = "none";
@@ -35,21 +35,28 @@ function start(){
     uitleg.style.color = 'black';
     quot.innerHTML = vraag+'. '+subjects[0].title;
     uitleg.innerHTML = subjects[0].statement;
-    statements.innerHTML = 'Wat vinden de partijen?';
-    btnNext.innerHTML = 'Eens';
+    btnNext.innerHTML = '<h3>Eens</h3>';
     overslaan.style.display = 'inline';
     infoPlace.style.display = 'none';
     par_txt.style.display = 'none';
     infoPlace2.style.display = 'none';
     btnNext2.style.display = 'inline';
     btnNext3.style.display = 'inline';
+    if(vraag >= 29){
+        btnNext.onclick = function() {eindKeuze()};
+    }
     btnNext.onclick = function() {eens()};
 }
 
 function next(){
     vraag += 1;
-    quot.innerHTML = vraag+'. '+subjects[vraag].title;
-    uitleg.innerHTML = subjects[vraag].statement;
+    
+    if(vraag >= 30){
+        eindKeuze();
+    } else {
+        quot.innerHTML = vraag+'. '+subjects[vraag].title;
+        uitleg.innerHTML = subjects[vraag].statement;
+    }
 }
 
 function eens(){
@@ -104,6 +111,18 @@ function oneens(){
         }
     }
     next();
+}
+
+function eindKeuze(){
+    quot.innerHTML = 'Zijn er onderwerpen die u extra belangrijk vindt?';
+    uitleg.innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.';
+    infoPlace2.style.display = 'none';
+    btnNext2.style.display = 'none';
+    btnNext3.style.display = 'none';
+    btnNext.innerHTML = '<h3>Ga verder</h3>';
+    btnNext.style.position = 'relative';
+    overslaan.style.display = 'none';
+    logo.style.display = 'none';
 }
 
 function back(){
