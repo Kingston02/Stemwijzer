@@ -146,7 +146,7 @@ function eindKeuze(){
         secondContainer.appendChild(x);  
     }
 }
-
+ 
 function back(){
     if(vraag == 1){
         localStorage.clear();
