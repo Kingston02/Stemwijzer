@@ -123,19 +123,21 @@ function eindKeuze(){
     btnNext2.style.display = 'none';
     btnNext3.style.display = 'none';
     btnNext.innerHTML = '<h3>Ga verder</h3>';
+    btnNext.setAttribute( "onClick", "javascript: calc();" );
     btnNext.style.position = 'relative';
     blik.innerHTML = '<strong>Extra belangrijke onderwerpen</strong>';
     btnNext.style.right = '0px';
     overslaan.style.display = 'none';
     logo.style.display = 'none';
-    //secondContainer.style.display = "inline";
+    secondContainer.style.height = "400px";
 
     for (let i = 1; i < vraag; i++) {
-        
+
         var element2 = document.createElement("input");
         element2.type = "checkbox";
+        element2.value = subjects[i].title;
         secondContainer.appendChild(element2);
-        
+
         var x = document.createElement("LABEL");
         var t = document.createTextNode(subjects[i].title);
         x.setAttribute("for", "male");
@@ -143,10 +145,79 @@ function eindKeuze(){
         secondContainer.appendChild(x);
 
         var x = document.createElement("BR");
-        secondContainer.appendChild(x);  
+        secondContainer.appendChild(x);
     }
 }
- 
+
+
+function calc(){
+
+    var selected = [];
+    var chks = document.getElementsByTagName("INPUT");
+
+    // Loop and push the checked CheckBox value in Array.
+    for (var k = 0; k < chks.length; k++) {
+        if (chks[k].checked) {
+            selected.push(chks[k].value);
+            for (let i = 1; i < vraag; i++) {
+                if(subjects[i].title == chks[k].value){
+                    for (var v = 0; v < loopCount; v++) {
+                        var positie = subjects[v].parties[v].position;
+                        if(positie == 'pro'){
+                            var naam = subjects[v].parties[v].name;
+                            var eens_score = sessionStorage.getItem(naam);
+                            var new_score = eval(eens_score) + 1;
+                            sessionStorage.setItem(naam, new_score);
+                        } else {
+                            var naam = subjects[v].parties[v].name;
+                            var eens_score = sessionStorage.getItem(naam);
+                            var new_score = eval(eens_score) - 1;
+                            sessionStorage.setItem(naam, new_score);
+                        }
+                    }
+
+                    for (var v = 0; v < loopCount; v++) {
+                        var positie = subjects[v].parties[v].position;
+                        if(positie == 'none'){
+                            var naam = subjects[v].parties[v].name;
+                            var eens_score = sessionStorage.getItem(naam);
+                            var new_score = eval(eens_score) + 1;
+                            sessionStorage.setItem(naam, new_score);
+                        } else {
+                            var naam = subjects[v].parties[v].name;
+                            var eens_score = sessionStorage.getItem(naam);
+                            var new_score = eval(eens_score) - 1;
+                            sessionStorage.setItem(naam, new_score);
+                        }
+                    }
+
+                    for (var v = 0; v < loopCount; v++) {
+                        var positie = subjects[v].parties[v].position;
+                        if(positie == 'contra'){
+                            var naam = subjects[v].parties[v].name;
+                            var eens_score = sessionStorage.getItem(naam);
+                            var new_score = eval(eens_score) + 1;
+                            sessionStorage.setItem(naam, new_score);
+                        } else {
+                            var naam = subjects[v].parties[v].name;
+                            var eens_score = sessionStorage.getItem(naam);
+                            var new_score = eval(eens_score) - 1;
+                            sessionStorage.setItem(naam, new_score);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    //Display the selected CheckBox values.
+    if (selected.length > 0) {
+        alert(selected.join(","));
+    }
+
+}
+
 function back(){
     if(vraag == 1){
         localStorage.clear();
