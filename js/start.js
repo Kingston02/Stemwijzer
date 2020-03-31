@@ -228,26 +228,27 @@ function back(){
 
 function resultaat(){
     
-    document.getElementsByTagName('input').innerHTML = 'text';
+    secondContainer.innerHTML = "";
 
-    quot.innerHTML = 'Uw resultaten';
+
+    quot.innerHTML = 'Uw resultaten'; 
     uitleg.innerHTML = 'De partijen die het best bij u past.';
     infoPlace2.style.display = 'none';
     btnNext2.style.display = 'none';
     btnNext3.style.display = 'none';
     btnNext.display = 'none';
-    blik.innerHTML = '<strong>Alle partijen</strong>';
+    secondContainer.innerHTML = '<strong>Alle partijen</strong>';
     overslaan.style.display = 'none';
     logo.style.display = 'none';
     secondContainer.style.height = "850px";
-
+ 
     for (let i = 1; i < partij_aantal; i++) {
 
-        var element2 = document.createElement("h4");
+        var element2 = secondContainer.createElement("h4");
         element2.value = subjects[i].parties[i].name;
         secondContainer.appendChild(element2);
 
-        var x = document.createElement("BR");
+        var x = secondContainer.createElement("BR");
         secondContainer.appendChild(x);
     }
 }
