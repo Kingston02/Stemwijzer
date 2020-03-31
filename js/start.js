@@ -230,7 +230,6 @@ function resultaat(){
     
     secondContainer.innerHTML = "";
 
-
     quot.innerHTML = 'Uw resultaten'; 
     uitleg.innerHTML = 'De partijen die het best bij u past.';
     infoPlace2.style.display = 'none';
@@ -244,8 +243,8 @@ function resultaat(){
  
     for (let i = 1; i < partij_aantal; i++) {
 
-        var element2 = secondContainer.createElement("h4");
-        element2.value = subjects[i].parties[i].name;
+        var element2 = document.createElement("H4");
+        element2.innerHTML = subjects[vraag].parties[i].name;
         secondContainer.appendChild(element2);
 
         var x = secondContainer.createElement("BR");
