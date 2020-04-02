@@ -1,3 +1,4 @@
+// alle vars
 var firstContainer = document.getElementById("first-container");
 var secondContainer = document.getElementById("second-container");
 var thirdContainer = document.getElementById("third-container");
@@ -18,6 +19,7 @@ var loopCount = partij_aantal - 1;
 var eens_score = 0;
 var vraag = 1;
 
+// zet alle partijen in de sessie
 for (var i = 0; i < partij_aantal; i++) {
     var naam = subjects[0].parties[i].name;
     sessionStorage.setItem(naam, eens_score);
@@ -51,6 +53,7 @@ function start(){
     btnNext.onclick = function() {eens()};
 }
 
+// volgende statement
 function next(){
     vraag += 1;
     
@@ -62,6 +65,7 @@ function next(){
     }
 }
 
+// eens statement
 function eens(){
     for (var k = 0; k < loopCount; k++) {
         var positie = subjects[vraag].parties[k].position;
@@ -80,6 +84,7 @@ function eens(){
     next();
 }
 
+// geen statement
 function geen(){
     for (var k = 0; k < loopCount; k++) {
         var positie = subjects[vraag].parties[k].position;
@@ -98,6 +103,7 @@ function geen(){
     next();
 }
 
+// oneens statement
 function oneens(){
     for (var k = 0; k < loopCount; k++) {
         var positie = subjects[vraag].parties[k].position;
@@ -116,6 +122,7 @@ function oneens(){
     next();
 }
 
+// laat de belangrijke punten zien
 function eindKeuze(){
     quot.innerHTML = 'Zijn er onderwerpen die u extra belangrijk vindt?';
     uitleg.innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.';
@@ -149,7 +156,7 @@ function eindKeuze(){
     }
 }
 
-
+// berekend belangrijke punten
 function calc(){
 
     var selected = [];
@@ -215,6 +222,7 @@ function calc(){
 
 }
 
+// knop terug
 function back(){
     if(vraag == 1){
         localStorage.clear();
@@ -226,8 +234,11 @@ function back(){
     }
 }
 
+// laat resultaten zien
 function resultaat(){
-    
+
+    var puntenEnd = [];
+    var partijenArr = [];
     secondContainer.innerHTML = "";
 
     quot.innerHTML = 'Uw resultaten'; 
@@ -239,15 +250,28 @@ function resultaat(){
     secondContainer.innerHTML = '<strong>Alle partijen</strong>';
     overslaan.style.display = 'none';
     logo.style.display = 'none';
-    secondContainer.style.height = "850px";
- 
-    for (let i = 1; i < partij_aantal; i++) {
+    secondContainer.style.height = "950px";
 
-        var element2 = document.createElement("H4");
-        element2.innerHTML = subjects[vraag].parties[i].name;
-        secondContainer.appendChild(element2);
 
-        var x = secondContainer.createElement("BR");
-        secondContainer.appendChild(x);
+    
+    for(var j = 0; j < 23; j++) {
+        var namen = Object.keys(sessionStorage)[j];
+        var punten = Object.values(sessionStorage)[j];
+        partijenArr.push(punten);
+        partijenArr.push(namen);
+
+        puntenEnd.push(partijenArr);
+        var partijenArr = [];
+        puntenEnd.sort(function(a,b){return b[0] - a[0]});
+
     }
+
+    for (var i = 0; i < puntenEnd.length; i++) {
+        var h = document.createElement("H4");
+        var t = document.createTextNode(puntenEnd[i][1]);
+        h.appendChild(t);
+        secondContainer.appendChild(h);
+    }
+
+
 }
