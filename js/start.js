@@ -25,21 +25,34 @@ for (var i = 0; i < partij_aantal; i++) {
     sessionStorage.setItem(naam, eens_score);
 }
 
-for (var p = 0; p < partij_aantal; p++) {
-    alert(9);
-    var secularParties = [];
-    var nameSecular = parties[p].name;
-    var secular = parties[p].secular;
-    
-    if(secular == 'true'){
-        secularParties.push(nameSecular);
-    }
-}
-
-console.log(secularParties);
 
 // start function
-function start(){
+    function start(){
+    var secularParties = [];
+    var groteParties = [];
+
+    for (var p = 0; p < partij_aantal; p++) {
+
+        var nameSecular = parties[p].name;
+        var secular = parties[p].secular;
+        
+        if(secular == true){
+            secularParties.push(nameSecular);
+        }
+    }
+
+    for (var p = 0; p < partij_aantal; p++) {
+
+        var nameSecular = parties[p].name;
+        var grote = parties[p].size;
+        
+        if(grote > 0){
+            groteParties.push(nameSecular);
+        }
+    }
+
+    console.log(groteParties);
+
     //secondContainer.style.display = "none";
     blik.innerHTML = 'Wat vinden de partijen?';
     thirdContainer.style.display = "none";
@@ -295,15 +308,18 @@ function groot(){
     secondContainer.innerHTML = '<strong>Alle partijen</strong>';
     secondContainer.style.height = "950px";
     btnNext2.onclick = seculier();
-    btnNext3.onclick = groot();
+
 
     for(var j = 0; j < 23; j++) {
         var namen = Object.keys(sessionStorage)[j];
         var punten = Object.values(sessionStorage)[j];
-        partijenArr.push(punten);
-        partijenArr.push(namen);
 
-        puntenEnd.push(partijenArr);
+        if(groteParties.includes(namen)){
+            partijenArr.push(punten);
+            partijenArr.push(namen);
+            puntenEnd.push(partijenArr);
+        }
+        
         var partijenArr = [];
         puntenEnd.sort(function(a,b){return b[0] - a[0]});
 
