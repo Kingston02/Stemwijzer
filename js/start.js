@@ -25,6 +25,19 @@ for (var i = 0; i < partij_aantal; i++) {
     sessionStorage.setItem(naam, eens_score);
 }
 
+for (var p = 0; p < partij_aantal; p++) {
+    alert(9);
+    var secularParties = [];
+    var nameSecular = parties[p].name;
+    var secular = parties[p].secular;
+    
+    if(secular == 'true'){
+        secularParties.push(nameSecular);
+    }
+}
+
+console.log(secularParties);
+
 // start function
 function start(){
     //secondContainer.style.display = "none";
@@ -244,16 +257,17 @@ function resultaat(){
     quot.innerHTML = 'Uw resultaten'; 
     uitleg.innerHTML = 'De partijen die het best bij u past.';
     infoPlace2.style.display = 'none';
-    btnNext2.style.display = 'none';
-    btnNext3.style.display = 'none';
+
     btnNext.display = 'none';
     secondContainer.innerHTML = '<strong>Alle partijen</strong>';
     overslaan.style.display = 'none';
     logo.style.display = 'none';
     secondContainer.style.height = "950px";
+    btnNext2.innerHTML = 'Seculiere';
+    btnNext3.innerHTML = 'Grote';
+    btnNext2.onclick = seculier();
+    btnNext3.onclick = groot();
 
-
-    
     for(var j = 0; j < 23; j++) {
         var namen = Object.keys(sessionStorage)[j];
         var punten = Object.values(sessionStorage)[j];
@@ -274,4 +288,35 @@ function resultaat(){
     }
 
 
+}
+
+function groot(){
+    
+    secondContainer.innerHTML = '<strong>Alle partijen</strong>';
+    secondContainer.style.height = "950px";
+    btnNext2.onclick = seculier();
+    btnNext3.onclick = groot();
+
+    for(var j = 0; j < 23; j++) {
+        var namen = Object.keys(sessionStorage)[j];
+        var punten = Object.values(sessionStorage)[j];
+        partijenArr.push(punten);
+        partijenArr.push(namen);
+
+        puntenEnd.push(partijenArr);
+        var partijenArr = [];
+        puntenEnd.sort(function(a,b){return b[0] - a[0]});
+
+    }
+
+    for (var i = 0; i < puntenEnd.length; i++) {
+        var h = document.createElement("H4");
+        var t = document.createTextNode(puntenEnd[i][1]);
+        h.appendChild(t);
+        secondContainer.appendChild(h);
+    }
+}
+
+function seculier(){
+    
 }
