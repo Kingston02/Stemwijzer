@@ -269,17 +269,17 @@ function resultaat(){
 
     quot.innerHTML = 'Uw resultaten'; 
     uitleg.innerHTML = 'De partijen die het best bij u past.';
+    btnNext.innerHTML = 'Grote';
+    btnNext.style.display = 'none';
+    btnNext2.style.display = 'none';
+    btnNext3.style.display = 'none';
     infoPlace2.style.display = 'none';
 
-    btnNext.display = 'none';
     secondContainer.innerHTML = '<strong>Alle partijen</strong>';
     overslaan.style.display = 'none';
     logo.style.display = 'none';
     secondContainer.style.height = "950px";
-    btnNext2.innerHTML = 'Seculiere';
-    btnNext3.innerHTML = 'Grote';
-    btnNext2.onclick = seculier();
-    btnNext3.onclick = groot();
+
 
     for(var j = 0; j < 23; j++) {
         var namen = Object.keys(sessionStorage)[j];
@@ -300,7 +300,14 @@ function resultaat(){
         secondContainer.appendChild(h);
     }
 
+    var buttonGrote = document.createElement('button');
+    buttonGrote.innerHTML = 'Grote';
+    buttonGrote.onclick = groot();
 
+    var buttonSeculiere = document.createElement('button');
+    buttonSeculiere.innerHTML = 'Seculiere';
+    buttonSeculiere.onclick = seculier();
+    
 }
 
 function groot(){
