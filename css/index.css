@@ -16,6 +16,15 @@
     width: 350px;
 }
 
+#proces-bar{
+    background-color: #01b4dc;
+    height: 5px;
+    width: 3%;
+    position: absolute;
+    left: 0px;
+    visibility: hidden;
+}
+
 .test-txt{
     color: #01b4dc;
 }
@@ -85,9 +94,6 @@ hr {
     top: -50px;
 }
 
-.partij-exist-txt{
-
-}
 
 #btn-next2{
     display: none;
@@ -98,4 +104,19 @@ hr {
 
 #overslaan{
     display: none;
+}
+
+#btn-grote{
+    display: none;
+}
+
+#btn-seculier{
+    display: none;
+}
+
+.footer{
+    width: 65em;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
