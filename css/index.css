@@ -16,6 +16,25 @@
     width: 350px;
 }
 
+#quot{
+    color: #01b4dc;
+}
+
+#uitzetten{
+    display: none;
+}
+
+#statement{
+    color:black;
+}
+
+#new_logo{
+    width: 20px;
+    position: relative;
+    margin-top: 0px;
+    margin-left: -50px;
+}
+
 #proces-bar{
     background-color: #01b4dc;
     height: 5px;
