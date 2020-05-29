@@ -92,7 +92,11 @@ function next(){
     }
 }
 
-// eens statement
+// de volgende @param is niet nodig maar is om te laten zien dat ik het snap
+/**
+ * If the user agree with the statement
+ * @param agree{int}
+ */
 function eens(){
     var nieuweBreete = (3.33 * vraag);
     procesBar.style.width = nieuweBreete+'%';
@@ -113,7 +117,11 @@ function eens(){
     next();
 }
 
-// geen statement
+// de volgende @param is niet nodig maar is om te laten zien dat ik het snap
+/**
+ * If the user disagree with both statement
+ * @param nothing{int}
+ */
 function geen(){
     var nieuweBreete = (3.33 * vraag);
     procesBar.style.width = nieuweBreete+'%';
@@ -134,7 +142,11 @@ function geen(){
     next();
 }
 
-// oneens statement
+// de volgende @param is niet nodig maar is om te laten zien dat ik het snap
+/**
+ * If the user disagree with the statement
+ * @param disagree{int}
+ */
 function oneens(){
     var nieuweBreete = (3.33 * vraag);
     procesBar.style.width = nieuweBreete+'%';
@@ -155,7 +167,11 @@ function oneens(){
     next();
 }
 
-// laat de belangrijke punten zien
+// de volgende @param is niet nodig maar is om te laten zien dat ik het snap
+/**
+ * Calculates the important subjects.
+ * @param imp{boolean}
+ */
 function eindKeuze(){
     quot.innerHTML = 'Zijn er onderwerpen die u extra belangrijk vindt?';
     uitleg.innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.';
